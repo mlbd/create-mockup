@@ -71,37 +71,37 @@ app.post("/", async (req, res) => {
         // console.log('Received post_id:', post_id);
         // console.log('Received logo:', logo);
 
-        const file_ext = getFileExtensionFromUrl(thumbnail_url);
-        let filename = post_id + '.' + file_ext;
+        // const file_ext = getFileExtensionFromUrl(thumbnail_url);
+        // let filename = post_id + '.' + file_ext;
 
-        const thumbnailImage = await loadImage(thumbnail_url);
-        const logoImage = await loadImage(logo);
+        // const thumbnailImage = await loadImage(thumbnail_url);
+        // const logoImage = await loadImage(logo);
 
-        const canvas = createCanvas(thumbnailImage.width, thumbnailImage.height);
-        const ctx = canvas.getContext('2d');
+        // const canvas = createCanvas(thumbnailImage.width, thumbnailImage.height);
+        // const ctx = canvas.getContext('2d');
 
-        ctx.drawImage(thumbnailImage, 0, 0);
+        // ctx.drawImage(thumbnailImage, 0, 0);
 
-        if (position_data) {
-            let { x, y, width, height, angle } = position_data;
+        // if (position_data) {
+        //     let { x, y, width, height, angle } = position_data;
 
-             // Use the original width and height of the logo
-             const originalWidth = logoImage.width;
-             const originalHeight = logoImage.height;
+        //      // Use the original width and height of the logo
+        //      const originalWidth = logoImage.width;
+        //      const originalHeight = logoImage.height;
 
-             const newHeight = aspect_height(originalWidth, originalHeight, width);
-             const newY =  aspectY(newHeight, height, y);
+        //      const newHeight = aspect_height(originalWidth, originalHeight, width);
+        //      const newY =  aspectY(newHeight, height, y);
 
-             ctx.save();
-             ctx.translate(x + width / 2, newY + newHeight / 2);
-             ctx.rotate(angle);
-             ctx.drawImage(logoImage, -width / 2, -newHeight / 2, width, newHeight);
-             ctx.restore();
-        }
+        //      ctx.save();
+        //      ctx.translate(x + width / 2, newY + newHeight / 2);
+        //      ctx.rotate(angle);
+        //      ctx.drawImage(logoImage, -width / 2, -newHeight / 2, width, newHeight);
+        //      ctx.restore();
+        // }
 
-        const dataUrl = canvas.toDataURL('image/png');
+        // const dataUrl = canvas.toDataURL('image/png');
 
-        res.json({ filename, dataUrl });
+        res.json({ filename });
     } catch (error) {
         console.error('Error:', error);
 
