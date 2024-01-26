@@ -60,7 +60,7 @@ function aspectY(newHeight, height, y) {
     return newY;
 }
 
-app.post("/", async (req, res) => {
+app.post("/", (req, res) => {
     res.send("Tumi Express on Vercel");
 })
 
