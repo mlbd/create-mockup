@@ -1,5 +1,11 @@
 {
     "version": 2,
+    "functions": {
+        "api": {
+          "runtime": "vercel-node@2.0.0",
+          "handler": "index.js"
+        }
+    },
     "builds": [
       {
         "src": "index.js",
