@@ -71,8 +71,8 @@ app.post("/", async (req, res) => {
         // console.log('Received post_id:', post_id);
         // console.log('Received logo:', logo);
 
-        // const file_ext = getFileExtensionFromUrl(thumbnail_url);
-        // let filename = post_id + '.' + file_ext;
+        const file_ext = getFileExtensionFromUrl(thumbnail_url);
+        let filename = post_id + '.' + file_ext;
 
         // const thumbnailImage = await loadImage(thumbnail_url);
         // const logoImage = await loadImage(logo);
